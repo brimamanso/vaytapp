@@ -1,0 +1,64 @@
+    <style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed
+            
+            
+        }
+        h3 {
+            color: purple;
+            font-weight: bold;
+        }
+
+        
+        
+        h5 {
+          color: black;
+            
+        }
+        h6 {
+          color: blue;
+            
+        }
+        td{
+          color: white;
+            
+        }
+      
+     
+    </style>
+  <div class="col-lg-4 col-lg-offset-4">
+    <center>
+      <h4 style="color:white;font-weight: bold;">
+                              Sign In
+      </h4>
+    </center>
+    <br>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <% if resource.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <%= resource.errors.full_messages.first %>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.email_field :email, class: 'form-control', autofocus: true, placeholder: 'Type your email' %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: 'Password (8 Minimum Characters )' %>
+      </div>
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, style: "color: white; font-weight: bold;" %>
+        </div>
+      <% end -%>
+      <div class="actions">
+        <%= f.submit 'Log in', class: 'btn btn-primary' %>
+      </div>
+    <% end %>
+    <br>
+    <%= render 'devise/shared/links' %>
+  </div>

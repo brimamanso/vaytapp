@@ -1,0 +1,54 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.6),
+                rgba(0,0,0, 0.6)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+<div class="row">
+      <div class="col-xs-12">
+            <div class="col-lg-6 col-lg-offset-3 well">
+                  <div id="post-<%= @post.id %>" class="micropost">
+                        <div class="form-group">                              
+                              <%= link_to @post.user do %>
+                                          <%= render 'shared/avatar', user: @post.user %>
+                                          <% end %>                                          
+                                          <%= link_to @post.user.name, user_path(@post.user) %>
+                                          <%= render 'shared/created_at', activity: @post %>
+                                    <h5><%= @post.content %></h5>
+                        
+                              <%= render 'shared/actions', resource: @post %>
+                              <hr>
+                              <div class="form-group">
+                                    <span class="like-count"><%= pluralize(@post.cached_votes_up, 'like') %></span>
+                                    <%= @post.comments.count %> Comments
+                                    <div class="pull-right">
+                                          <% if @post.user == current_user %>
+                                                            <span class="delete-post">
+                                                                  <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are You Sure you want to delete your post?"} %>
+                                                            </span> |
+
+                                                            <%= link_to edit_post_path(@post) do %>
+                                                                  <% fa_icon 'pencil' %>
+                                                            <% end %>                                                
+                                          <% end %>
+                                    </div>
+                                    <hr>
+                              </div>
+                              <%= render @post.comments %>
+                        </div>
+                  </div>
+            </div>
+      </div>
+</div>
+<div class="row">
+      <div class="col-xs-12">
+            <div class="col-lg-6 col-lg-offset-3 well"> 
+                  <%= render 'comments/form' %>
+            </div>
+      </div>
+</div>
+            
+
+

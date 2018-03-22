@@ -1,0 +1,23 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-lg-6 col-lg-offset-3 well">
+
+            <center>
+                <h3> Your Search Results </h3>
+            </center>
+                <div id="users">
+                <%= render(@users) %> 
+                </div>
+        </div>
+    </div>
+
+</div>
+

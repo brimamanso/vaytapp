@@ -1,0 +1,6 @@
+
+<li>
+  <%= render 'shared/avatar', user: notification.notified_by %><%= link_to "#{notification.notified_by.name} has #{notification.notice_type}ed on your post", link_through_path(notification)%>
+    <%= notification.notification_time %>
+    <hr>
+</li>

@@ -1,0 +1,45 @@
+<style>
+    body {
+            background: linear-gradient(
+                rgba(0,0,0, 0.4),
+                rgba(0,0,0, 0.4)
+                ), url("/star.jpg") no-repeat center center fixed
+    }
+        h3 {
+            color: white;
+            font-weight: bold;
+        }  
+        h4 {
+            color: purple;
+        } 
+        h5 {
+          color: purple;           
+        }
+        h6 {
+          color: blue;            
+        }
+        td{
+          color: white;           
+        }
+</style>
+  <center>
+    <h3> Your Messages</h3>
+  </center>
+
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3 well">
+      <% @tlks.each do |tlk| %>
+        <% if tlk.sender_id == current_user.id || tlk.recipient_id == current_user.id %>
+          <% if tlk.sender_id == current_user.id %>
+            <% recipient = User.find(tlk.recipient_id) %>
+          <% else %>
+            <% recipient = User.find(tlk.sender_id) %>
+          <% end %>
+              <%= render 'shared/avatar', user: tlk.recipient %> 
+              <%= link_to recipient.name, tlk_mls_path(tlk)%> <%= tlk.tlk_time %>
+              <br><hr>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+

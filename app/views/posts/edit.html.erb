@@ -1,0 +1,23 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.6),
+                rgba(0,0,0, 0.6)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-lg-6 col-lg-offset-3 well">        
+                <div class="form-group">
+                    <%= render 'form', post: @post %> 
+                </div>           
+                <div class="form-group">
+                    <span class="like-count"><%= pluralize(@post.cached_votes_up, 'like') %></span>
+                    <%= @post.comments.count %> Comments
+                </div>
+                <%= render 'shared/actions', resource: @post %>   
+        </div>      
+    </div>    
+</div>
+

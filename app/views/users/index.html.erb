@@ -1,0 +1,28 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+
+<%= form_tag users_path, method: :get do %>
+                <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search"%>
+<% end %>
+
+
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 well">
+
+    <hr>
+    <div id="users">
+      <%= render(@users) || render('shared/no_resource', resources: 'Users') %> 
+    </div>
+    <%= render 'shared/paginate', resources: @users %>
+  </div>
+  <div class="col-lg-3">
+    <%= render 'shared/links' %>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<style>
+    body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.4),
+                rgba(0,0,0, 0.4)
+                ), url("/star.jpg") no-repeat center center fixed
+    }
+
+</style>
+<div class="row">
+    <div class="col-lg-6 col-lg-offset-3 well">
+        <% @mls.each do |ml| %>
+          <% if ml.body %>
+            
+              <% user = User.find(ml.user_id) %>
+            
+            <div class="item">
+              <div class="content">
+                  <div class="header"> 
+                      <%= render 'shared/avatar', user: ml.user %><%= link_to user.name, user_path(ml.user) %> <%= ml.ml_time %>
+                  <div class="list">
+                        <%= ml.body %>
+                        <hr>
+                  </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>   
+    </div> 
+  </div>
+        <%= form_for [@tlk, @ml], html: {class: "ui reply form"} do |f| %>
+            <div class="form-group">
+              <%= f.text_area :body, placeholder: "Write your Message", rows: 4, class: "form-control" %>
+            </div>
+              <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+            <div>
+            <%= f.submit "Send", class: 'btn btn-primary pull-right' %>
+            <br><br>
+        <% end %>
+        
+

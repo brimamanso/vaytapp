@@ -1,0 +1,20 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div class="well">                     
+            <%= form_for @post, html: { multipart: true } do |f| %>
+              <div class="form-group">               
+                <%= f.text_area :content, class: 'form-control input-mentionable', autofocus: true, placeholder: 'Whats on your mind?' %>
+                
+              </div>   
+                            
+              <%= file_field_tag "post[media]", class: "hidden", id: "media-upload-btn" %>
+                  <%= button_tag id: "post", class: "btn btn-primary" do %>
+                    <%= fa_icon "paper-plane" %> Post
+              <% end %>              
+            <% end %>
+            
+    </div>
+  </div>
+</div>
+
+

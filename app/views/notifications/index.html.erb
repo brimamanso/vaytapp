@@ -1,0 +1,21 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.6),
+                rgba(0,0,0, 0.6)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+<div class="col-lg-8 col-lg-offset-2 well">
+      <center><h4 style="color:purple;font-weight: bold;">
+          Notifications</h4></center>
+          <%= render @notifications %>
+
+        <center>
+            <%= will_paginate @notifications, renderer: BootstrapPagination::Rails %>
+        <center>
+</div>
+
+        
+    
+

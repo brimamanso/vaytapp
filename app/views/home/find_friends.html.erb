@@ -1,0 +1,28 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+<div class="row">
+  <div class="col-lg-8 col-lg-offset-2 well">
+    <center>
+          <h4 style="color:purple;font-weight: bold;">
+                      Find People
+          </h4>
+    </center>
+    <hr>
+    <div id="users">
+      <%= render(@users) || render('shared/no_resource', resources: 'Users') %> 
+      <hr>
+    </div>
+    <center>
+      <%= will_paginate @users, renderer: BootstrapPagination::Rails %>
+    <center>
+  </div>
+  <div class="col-lg-3">
+    
+  </div>
+</div>

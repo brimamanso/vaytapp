@@ -1,0 +1,18 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.6),
+                rgba(0,0,0, 0.6)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+<div class="row">
+    <div class="col-xs-12">
+        <div class="col-lg-4 col-lg-offset-4 well"> 
+            <%= simple_form_for([@post, @comment]) do |f| %>
+                <%= f.input :content, label: "Edit Comment:"%>
+                <%= f.button :submit, class: "btn btn-primary" %>
+            <% end %>
+        </div>
+    </div>
+</div>

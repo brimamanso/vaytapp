@@ -1,0 +1,257 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+
+        h4 {
+            color: purple;
+            font-weight: bold;
+        }
+        h5 {
+            color: purple;
+            font-weight: bold;
+        }
+</style>
+<div class="row">
+    <div class=" well">
+      <center><h4 style="color:purple;font-weight: bold;">
+          Edit My Personal Profile</h4></center>
+    </div>
+  <div class="col-lg-6 col-lg-offset-0 well">
+      
+      <%= form_for @user do |f| %>
+        <div class="form-group">
+          <h4 style="color:purple;font-weight: bold;"><%= f.label :Add_a_Profile_Picture %></h4>
+        
+          <%= render 'shared/avatar' , user: @user %>
+          <br>
+          <br>
+          <%= f.file_field :avatar, class: 'form-control input-mentionable'%>
+            <% if @user.avatar? %>
+                  <br>
+                    <%= f.check_box :remove_avatar %>
+                      Remove Avatar
+            <% end %>
+          
+        </div>
+        <div class="form-group">
+          <h4><%= f.label :Add_a_Cover_Picture %></h4>
+          <br>
+          <br>
+          <br>
+          
+          <%= render 'shared/cover', user: @user %>
+          <br>
+          <br>
+          <%= f.file_field :cover, class: 'form-control input-mentionable' %>
+          <% if @user.cover? %>
+            <br>
+                    <%= f.check_box :remove_cover %>
+                      Remove Cover Picture
+          <% end %>
+        </div>
+  </div>
+  <div class="col-lg-6 col-lg-offset-0 well">
+        <div class="form-group">
+          <h5><%= f.label :name %></h5>
+          <%= f.text_field :name, placeholder: 'Full Name', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :bio %></h5>
+          <%= f.text_area :bio, placeholder: 'Bio', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :location %></h5>
+          <%= f.text_field :location, placeholder: 'Location', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :phone_number %></h5>
+          <%= f.text_field :phone_number, placeholder: 'Phone Number', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Hobies %></h5>
+          <%= f.text_area :Hobies, placeholder: 'Hobies', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Interests %></h5>
+          <%= f.text_area :Interests, placeholder: 'Interests', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Website %></h5>
+          <%= f.text_field :Website, placeholder: 'Website', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Goals %></h5>
+          <%= f.text_area :Goals, placeholder: 'Goals', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Skills %></h5>
+          <%= f.text_area :Skills, placeholder: 'Skills', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Nationality %></h5>
+          <%= f.text_field :Nationality, placeholder: 'Nationality', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Accomplishments %></h5>
+          <%= f.text_area :Accomplishments, placeholder: 'Accomplishments', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Majors %></h5>
+          <%= f.text_area :Majors, placeholder: 'Majors', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Minors %></h5>
+          <%= f.text_area :Minors, placeholder: 'Minors', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :School_Name %></h5>
+          <%= f.text_field :School_Name, placeholder: 'School Name', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Experiences %></h5>
+          <%= f.text_area :Experiences, placeholder: 'Experiences', class: 'form-control' %>
+        </div>
+        
+        <div class="form-group">
+          <h5><%= f.label :date_of_birth %></h5>
+          <%= f.text_field :date_of_birth, placeholder: 'year/month/day', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :sex %><br></h5>
+          <%= f.select :sex, options_for_seasons, class: 'form-control', prompt: 'Select One' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Role_Model %></h5>
+          <%= f.text_area :Role_Model, placeholder: 'Role Model', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Musicians %></h5>
+          <%= f.text_area :Favourite_Musicians, placeholder: 'Favourite Musicians', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Sports %></h5>
+          <%= f.text_area :Favourite_Sports, placeholder: 'Favourite Sports', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_TVshows %></h5>
+          <%= f.text_area :Favourite_TVshows, placeholder: 'Favourite TVshows', class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Subjects %></h5>
+          <%= f.text_area :Favourite_Subjects, placeholder: 'Favourite Subjects', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Best_Friends %></h5>
+          <%= f.text_area :Best_Friends, placeholder: 'Best Friends', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Food %></h5>
+          <%= f.text_area :Favourite_Food, placeholder: 'Favourite Food', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Countries %></h5>
+          <%= f.text_area :Favourite_Countries, placeholder: 'Favourite Countries', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Songs %></h5>
+          <%= f.text_area :Favourite_Songs, placeholder: 'Favourite Songs', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Youtubers %></h5>
+          <%= f.text_area :Favourite_Youtubers, placeholder: 'Favourite Youtubers', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Schools %></h5>
+          <%= f.text_area :Favourite_Schools, placeholder: 'Favourite Schools', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_University %></h5>
+          <%= f.text_area :Favourite_University, placeholder: 'Favourite University', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Animals %></h5>
+          <%= f.text_area :Favourite_Animals, placeholder: 'Favourite Animals', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Brand %></h5>
+          <%= f.text_area :Favourite_Brand, placeholder: 'Favourite Brand', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Relationship_status %><br></h5>
+          <%= f.select :Relationship_status, options_for_boys, class: 'Form-control', prompt: 'Select One' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :school_type %><br></h5>
+          <%= f.select :school_type, options_for_girls, class: 'Form-control', prompt: 'Select One' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Movies %></h5>
+          <%= f.text_area :Favourite_Movies, placeholder: 'Favourite Movies', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Books %></h5>
+          <%= f.text_area :Favourite_Books, placeholder: 'Favourite Books', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Allergies %></h5>
+          <%= f.text_area :Allergies, placeholder: 'Allergies', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Business_Ventures %></h5>
+          <%= f.text_area :Business_Ventures, placeholder: 'Business Ventures', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Destinations %></h5>
+          <%= f.text_area :Favourite_Destinations, placeholder: 'Favourite Destinations', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :wish %></h5>
+          <%= f.text_area :wish, placeholder: 'Wish', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :believes %></h5>
+          <%= f.text_area :believes, placeholder: 'Believes', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Friends_with_benefits %></h5>
+          <%= f.text_area :Friends_with_benefits, placeholder: 'Friends with benefits', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :passions %></h5>
+          <%= f.text_area :passions, placeholder: 'Passions', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Favourite_Quote %></h5>
+          <%= f.text_area :Favourite_Quote, placeholder: 'Favourite Quote', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :why_are_you_on_earth %></h5>
+          <%= f.text_area :why_are_you_on_earth, placeholder: 'Why are you on earth', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Core_Values %></h5>
+          <%= f.text_area :Core_Values, placeholder: 'Core Values', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :strengths %></h5>
+          <%= f.text_area :strengths, placeholder: 'Strengths', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Leadership_Styles %></h5>
+          <%= f.text_area :Leadership_Styles, placeholder: 'Leadership Styles', class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <h5><%= f.label :Native_Language %></h5>
+          <%= f.text_area :Native_Language, placeholder: 'Native Language', class: 'form-control' %>
+        </div>
+        <div class="actions">
+          <%= submit_tag 'Update', class: 'btn btn-info' %>
+        </div>
+      <% end %>
+    </div>
+</div>

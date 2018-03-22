@@ -1,0 +1,27 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+</style>
+<div class="row">
+  <%= render 'shared/cover', user: @user %>
+  <%= render 'user_nav', view_type: 'profile' %>
+  <div class="col-lg-8 col-lg-offset-2 well">
+    <center><h4 style="color:purple;font-weight: bold;">
+       Friends </h4>
+    </center>
+    <hr>
+    <div id="friends">
+      <%= render(@friends) || render('shared/no_resource', resources: 'Friends') %>
+    </div>
+    <center>
+      <%= will_paginate @friends, renderer: BootstrapPagination::Rails %>
+    <center>
+  </div>
+  <div class="col-lg-3">
+    <%= render 'shared/links' %>
+  </div>
+</div>

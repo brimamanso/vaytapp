@@ -1,0 +1,22 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+
+</style>
+<div class="row">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="well">
+      <p>Please note that deactivating your acoount will delete all 
+        informations about you and the contents you have posted</p>
+      <hr>
+      <br>
+      <center>
+       <%= button_to 'Delete My Account', registration_path(@user), data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: 'btn btn-danger' %>
+      </center>
+    </div>
+  </div>
+</div>

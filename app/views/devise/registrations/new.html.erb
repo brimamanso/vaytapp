@@ -1,0 +1,78 @@
+    <style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.4),
+                rgba(0,0,0, 0.4)
+                ), url("/star.jpg") no-repeat center center fixed
+            
+            
+        }
+        h3 {
+            color: purple;
+            font-weight: bold;
+        }
+
+        
+        
+        h5 {
+          color: black;
+            
+        }
+        h6 {
+          color: blue;
+            
+        }
+        td{
+          color: white;
+            
+        }
+      
+     
+    </style>
+
+  <div class="col-lg-4 col-lg-offset-4 ">
+    <center>
+      <h4 style="color:white;font-weight: bold;">
+                      Create Free Account
+      </h4>
+    </center>
+    <br>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <% if resource.errors.any? %>
+        <div class="alert alert-danger alert-dismissable">
+          <%= resource.errors.full_messages.first %>
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        </div>
+      <% end %>
+      <div class="form-group">
+        <%= f.text_field :name, class: 'form-control', autofocus: true, placeholder: 'Enter Your Full Name' %>
+      </div>
+      <div class="form-group">
+        <%= f.email_field :email, class: 'form-control', placeholder: 'Type Your Email' %>
+      </div>
+      <div class="form-group">
+        <% if @minimum_password_length %>
+        <% end %>
+        <%= f.password_field :password, class: 'form-control', autocomplete: 'off', placeholder: 'Password (8 Minimum Characters )' %>
+      </div>
+      <div class="form-group">
+        <%= f.password_field :password_confirmation, class: 'form-control', autocomplete: 'off', placeholder: 'Password Confirmation' %>
+      </div>
+      <% if devise_mapping.rememberable? -%>
+        <div class="form-group">
+          <h5 style="color:white;">
+            <%= f.check_box :remember_me %> By ticking this box, you are agreeing with our <%= link_to 'Privacy Policy', privacy_path, style: "color: white;" %> and <%= link_to 'Terms&Condition', terms_path, style: "color: white" %> in this site. 
+          </h5>
+        </div>
+      <% end -%>
+      <div class="actions">
+        <center>
+          <%= f.submit 'Create Free Account', class: 'btn btn-primary' %>
+        </center>
+      </div>
+    <% end %>
+    <br>
+    <center>
+      <%= render 'devise/shared/links' %>
+    </center>
+  </div>

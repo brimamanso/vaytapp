@@ -1,0 +1,46 @@
+<style>
+        body {
+            background: linear-gradient( 
+                rgba(0,0,0, 0.5),
+                rgba(0,0,0, 0.5)
+                ), url("/star.jpg") no-repeat center center fixed           
+        }
+
+</style>
+
+
+<%= render 'shared/cover', user: @user %>
+<%= render 'user_nav', view_type: 'profile' %>
+<br>
+<div id="user-<%= @user.id %>" class="row">
+
+  <div class="col-lg-6">
+    <div class="well">
+      <% unless is_current_user?(@user) %>
+        <center><p style="color:purple;font-weight: bold;">
+          <%= 'This Person Is Following You' if current_user.followed_by?(@user) %>
+          <%= render 'follows/form', user: @user %>
+        </center>
+      <% else %>
+        <center><%= link_to "Edit My Profile", edit_user_path(@user), class: 'btn btn-primary' %></center>
+      <% end %>
+    </div>
+    <%= render 'shared/user_info'%>
+  </div>
+
+  <div class="col-lg-6">
+    <div id="activities">
+      <% if @activities.empty? %>
+        <div class="well">
+          <%= render('shared/no_resource', resources: 'Activities') %>
+        </div>
+      <% else %>
+        <%= render_activities(@activities, layout: '/shared/activity') %>
+      <% end %>
+    </div>
+    <center>
+              <%= will_paginate @activities, renderer: BootstrapPagination::Rails %>
+    <center>
+  </div>
+  
+</div>
